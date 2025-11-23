@@ -1,0 +1,27 @@
+package com.dane.Task_Management_System.entity;
+
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+import java.time.LocalTime;
+@Entity
+@Table(name = "tasks")
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
+
+public class Task {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+    private String title;
+    private String description;
+    private String status;
+    private LocalTime createdAt;
+    @ManyToOne
+    @JoinColumn(name = "category_id", nullable = false)
+    private Category category;
+
+}

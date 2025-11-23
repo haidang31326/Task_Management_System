@@ -1,0 +1,14 @@
+spring:
+    datasource:
+        url: jdbc:sqlserver://localhost:1433;databaseName=task_management_db;encrypt=true;trustServerCertificate=true
+        username: dane
+        password: '123'
+        driver-class-name: com.microsoft.sqlserver.jdbc.SQLServerDriver
+    jpa:
+        hibernate:
+            ddl-auto: update
+        show-sql: true
+        properties:
+              hibernate:
+                format_sql: true
+                dialect: org.hibernate.dialect.SQLServerDialect
