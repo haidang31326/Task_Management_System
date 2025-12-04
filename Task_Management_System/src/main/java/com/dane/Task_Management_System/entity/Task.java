@@ -5,6 +5,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.util.List;
 
@@ -21,7 +22,7 @@ public class Task {
     private String title;
     private String description;
     private String status;
-    private LocalTime createdAt;
+    private LocalDateTime createdAt;
     @ManyToOne
     @JoinColumn(name = "category_id", nullable = false)
     private Category category;
