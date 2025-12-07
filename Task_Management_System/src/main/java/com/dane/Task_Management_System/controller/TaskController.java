@@ -40,4 +40,16 @@ public class TaskController {
          taskservice.deleteTaskByID(id);
         return ResponseEntity.ok("Task deleted successfullt");
     }
+
+    @GetMapping("/search" )
+    public ResponseEntity<List<Task>> searchTasks(@RequestParam String tittle) {
+        List<Task> newTasks = taskservice.findTaskByTittle(tittle);
+        return ResponseEntity.ok(newTasks);
+    }
+
+    @GetMapping("/filter")
+    public ResponseEntity<List<Task>> searchTasksByStatus(@RequestParam String status) {
+        List<Task> Tasks = taskservice.findTasksByStatus(status);
+        return ResponseEntity.ok(Tasks);
+    }
 }

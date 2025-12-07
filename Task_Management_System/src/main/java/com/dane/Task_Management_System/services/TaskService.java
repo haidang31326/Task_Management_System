@@ -73,4 +73,12 @@ public class TaskService {
         }
         taskRepository.deleteById(id);
     }
+
+    public List<Task> findTaskByTittle(String tittle) {
+        return taskRepository.findByTitleContaining(tittle);
+    }
+
+    public List<Task> findTasksByStatus(String status) {
+        return taskRepository.findByStatus(status);
+    }
 }
