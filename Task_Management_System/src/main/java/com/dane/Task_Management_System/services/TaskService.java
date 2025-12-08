@@ -11,7 +11,6 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDateTime;
-import java.time.LocalTime;
 import java.util.List;
 
 @Service
@@ -80,5 +79,17 @@ public class TaskService {
 
     public List<Task> findTasksByStatus(String status) {
         return taskRepository.findByStatus(status);
+    }
+
+    public List<Task> searchAndFilterTasks(String title, String status) {
+        if (title != null && !title.trim().isEmpty()) {
+            title = "%" + title + "%";
+        } else {
+            title = null;
+        }
+        if (status != null && status.trim().isEmpty()) {
+            status = null;
+        }
+        return taskRepository.searchAndFilter(title, status);
     }
 }

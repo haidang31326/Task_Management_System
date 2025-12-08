@@ -52,4 +52,9 @@ public class TaskController {
         List<Task> Tasks = taskservice.findTasksByStatus(status);
         return ResponseEntity.ok(Tasks);
     }
+    @GetMapping("/super-search")
+    public ResponseEntity<List<Task>> superSearch(@RequestParam String tittle ,@RequestParam String status) {
+        List<Task> Tasks = taskservice.searchAndFilterTasks(tittle, status);
+        return ResponseEntity.ok(Tasks);
+    }
 }
